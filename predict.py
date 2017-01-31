@@ -18,7 +18,6 @@ import re
 _FOLDER = './'
 
 def make_deploy_prototxt():
-    network_start_line = '### NETWORK ###'
     head_data ='''
 name: "deeplab-large-fov-suyog-binary"
 input: 'data'
@@ -26,7 +25,6 @@ input_dim: 1
 input_dim: 3
 input_dim: 513
 input_dim: 513'''
-    tail_re = re.compile("layers \{.*?fc8_mat.*?label*?TEST \}", re.DOTALL)
     base_dir = os.getcwd()
     template_file = open(base_dir + '/test_template.prototxt').readlines()[25:428]
 
